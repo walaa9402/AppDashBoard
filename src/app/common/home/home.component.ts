@@ -13,6 +13,9 @@ export class HomeComponent implements OnInit {
   constructor(private company : MypackagesService, private router : Router) { }
 
   ngOnInit() {
+    this.getPackages()
+  }
+  getPackages(){
     this.company.mypackages(this.companyId).subscribe(res => {
       if(res["data"]){
         this.myPackages = res["data"]
@@ -30,5 +33,18 @@ export class HomeComponent implements OnInit {
       }
       console.log(this.myPackages[0])
     })
+  }
+  delete(p){
+    if(confirm("Are You Sure, You Want to Delete Package ?")){
+      if(p.avail == p.avail_tickets){
+        this.company.deletePackage(p.pid).subscribe(res => {
+          this.getPackages()
+          console.log(typeof(res["data"]))
+        })
+      } else {
+        alert("you can not delete this package")
+      }
+    }
+    
   }
 }

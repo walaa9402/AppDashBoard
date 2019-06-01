@@ -10,4 +10,7 @@ export class MypackagesService {
   mypackages(company_id){
     return this.http.get(this.host+`/company/mypackages?id=${company_id}`)
   }
+  deletePackage(package_id){
+    return this.http.get(this.host+`/company/package/remove?id=${package_id}`)
+  }
 }
