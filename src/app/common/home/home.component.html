@@ -1,3 +1,58 @@
-<p>
-  home works!
-</p>
+<div class="container">
+  <div class="row justify-content-end">
+    <div class="col-3 text-right pb-4 pt-4">
+        <a [routerLink]="['/admin/addpackage',myPackages[0].cid]" class="btn btn-success">+ Add Packages</a>
+    </div>
+  </div>
+  <div *ngIf="myPackages">
+    <div class="row justify-content-start">
+      <div class="col-6" *ngFor="let package of myPackages">
+        <div class="card">
+          <img src={{package.paths[0]}} class="card-img-top" alt={{package.p_name}} height="200">
+          <div class="card-body">
+            <div class="row justify-content-between border-bottom pt-2 pb-2">
+              <div class="col-6">
+                <p class="card-title text-capitalize"><strong>{{package.p_name}}</strong></p>
+                <small class="text-muted">Published: {{package.addingDate}}</small>
+              </div>
+              <div class="col-6 text-right">
+                <p>{{package.date}}</p>
+              </div>
+            </div>
+            <div class="row justify-content-between border-bottom pt-2 pb-2">
+                <div class="col-6">
+                    <p>From : <strong>{{package.travel_from}}</strong></p>
+                </div>
+                <div class="col-6 text-right">
+                  <p>To : <strong>{{package.travel_to}}</strong></p>
+                </div>
+            </div>
+            <div class="row justify-content-between border-bottom pt-2 pb-2">
+                <div class="col-6">
+                    <p>Total Tickets : <strong>{{package.avail_tickets}}</strong></p>
+                </div>
+                <div class="col-6 text-right">
+                    <p>Available : <strong>{{package.avail}}</strong></p>
+                </div>
+                <div class="col-6">
+                  <p>Adults : <strong>{{package.adults}}</strong></p>
+                </div>
+                <div class="col-6 text-right">
+                  <p>Children : <strong>{{package.children}}</strong></p>
+                </div>
+                <div class="col-12 text-right">
+                    <a [routerLink]="['bookedpeople',package.pid]" class="btn btn-outline-success">Show</a>
+                </div>
+            </div>
+            <div class="row justify-content-end pt-2">
+                <div class="col-6 text-right">
+                  <a href="#" class="btn btn-outline-primary">Details</a>
+                  <a href="#" class="btn btn-outline-danger ml-1">Delete</a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.admin-layout{
+    box-sizing: border-box;
+    min-height: 100vh;
+    background-color: rgb(224, 224, 220);
+}
+.view{
+    overflow-y: scroll;
+    max-height: 100vh;
+}

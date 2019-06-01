@@ -2,11 +2,18 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from '../common/home/home.component';
 import { ContainerComponent } from './container/container.component';
+import { PackageDetailsComponent } from '../common/package-details/package-details.component';
+import { BookedPeopleComponent } from '../common/booked-people/booked-people.component';
+import { AddPackageComponent } from '../common/add-package/add-package.component';
 
 const routes: Routes = [
   {path: '' , component : ContainerComponent, children :[
-    {path: '' , component : HomeComponent , outlet: 'admin'}
-  ] }
+    {path: 'details' , component : PackageDetailsComponent},
+    {path: 'bookedpeople/:id' , component : BookedPeopleComponent},
+    {path: 'addpackage/:id' , component : AddPackageComponent },
+    {path: '' , component : HomeComponent}
+  ] },
+  
 ];
 
 @NgModule({
