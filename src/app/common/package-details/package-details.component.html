@@ -1,3 +1,80 @@
-<p>
-  package-details works!
-</p>
+<section class="details pt-5 pb-5">
+  <div class="container">
+    <div class="row">
+      <!-- package image -->
+      <div class="col-4">
+        <img class="img-fluid" src={{package.paths[0]}} alt={{package.p_name}}>
+      </div>
+      <!-- package details -->
+      <div class="col-8">
+        <h3>{{package.p_name}}</h3>
+        <p>rate : {{package.rate}}</p>
+        <p class="text_muted"><small>published : {{package.addingDate}}</small></p>
+        <div class="row justify-content-between">
+          <div class="col-6">
+            <p>From : <strong>{{package.travel_from}}</strong></p>
+          </div>
+          <div class="col-6">
+            <p>To : <strong>{{package.travel_to}}</strong></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <p>Total Tickets : <strong>{{package.avail_tickets}}</strong></p>
+          </div>
+          <div class="col-6">
+            <p>Available Tickets : <strong>{{package.avail}}</strong></p>
+          </div>
+          <div class="col-6">
+            <p>Adults : <strong>{{package.adults}}</strong></p>
+          </div>
+          <div class="col-6">
+            <p>Children : <strong>{{package.children}}</strong></p>
+          </div>
+          <div class="col-6">
+            <p>Date : <strong>{{package.date}}</strong></p>
+          </div>
+          <div class="col-6">
+              <p>Duration : <strong>{{package.duration}}</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- package description & images-->
+    <div class="container">
+      <div class="row pt-2 pb-2">
+        <h4><strong>Description</strong></h4>
+        <p>{{package.description}}</p>
+      </div>
+      <div class="row bg-dark pt-3 pb-3 mb-5">
+          <div class="col-lg-3 col-md-4 col-6" *ngFor="let path of package.paths">
+            <img class="img-fluid img-thumbnail" src={{path}} alt={{package.p_name}}>
+          </div>
+      </div>
+      <h4><strong>Participants Information</strong></h4>
+      <table class="table table-light mb-3">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Adults</th>
+            <th scope="col">Children</th>
+            <th scope="col">Booking Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let person of booked">
+            <td>{{person.name}}</td>
+            <td>{{person.tickets}}</td>
+            <td>{{person.discounted_tickets}}</td>
+            <td>{{person.booking_date}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- <div class="container">
+      <div class="row p-3 ">
+         
+      </div>
+    </div> -->
+  </div>
+</section>

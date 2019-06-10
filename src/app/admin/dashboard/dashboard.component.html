@@ -1,7 +1,13 @@
 <div class="container dash">
-  <header>
-    <h3>company name</h3>
-    <p >******</p>
+  <header class="border-bottom pb-4 pt-5">
+    <div class="row justify-content-start align-items-center">
+      <div class="col-4">
+        <img class="img-thumbnail img-fluid" src={{image}} alt={{company}}>
+      </div>
+      <div class="col-4 align-items-center">
+        <h3>{{company}}</h3>
+      </div>
+    </div>
   </header>
   <main>
       <a routerLink="/admin" class="btn btn-outline-primary btn-lg btn-block">

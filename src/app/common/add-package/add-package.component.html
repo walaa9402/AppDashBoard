@@ -1,3 +1,10 @@
-<p>
-  add-package works!
-</p>
+<div class="contain">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" novalidate enctype="multipart/form-data">
+      <input type="text" formControlName="name" placeholder="Your name">
+      <input type="email" formControlName="email" placeholder="Your email">
+      <input type="number" formControlName="message" placeholder="Your message">
+      <input type="file" formControlName="myFile" name="myFile" (change)="onFileChange($event)" placeholder="Your message">
+    
+      <button type="submit">Send</button>
+    </form>    
+</div>

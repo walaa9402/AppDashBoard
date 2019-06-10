@@ -1,3 +1,7 @@
-<p>
-  login works!
-</p>
+<div class="contain">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" novalidate>
+    <input type="email" formControlName="email" placeholder="Your email">
+    <input type="password" formControlName="password" placeholder="Your password">
+    <button type="submit">login</button>
+  </form>    
+</div>

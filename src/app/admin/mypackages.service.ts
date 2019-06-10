@@ -13,4 +13,13 @@ export class MypackagesService {
   deletePackage(package_id){
     return this.http.get(this.host+`/company/package/remove?id=${package_id}`)
   }
+  packageDetails(pid){
+    return this.http.get(this.host+`/company/package/details?id=${pid}`)
+  }
+  uploadImage(form){
+    return this.http.post(this.host+"/image/upload",form)
+  }
+  login(email,password){
+    return this.http.post(this.host+"/company/login",{email,password})
+  }
 }

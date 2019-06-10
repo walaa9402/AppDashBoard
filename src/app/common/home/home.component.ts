@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   companyId=1
   myPackages=[]
+  packagedetails = {trip : {} , people : []} 
   constructor(private company : MypackagesService, private router : Router) { }
 
   ngOnInit() {
@@ -20,7 +21,10 @@ export class HomeComponent implements OnInit {
       if(res["data"]){
         this.myPackages = res["data"]
         this.myPackages = this.myPackages.map(function(element){
-          element["paths"][0]="http://localhost:3000/"+element["paths"][0]
+          element["paths"]=element["paths"].map(function(elem){
+
+            return "http://localhost:3000/"+elem
+          })
           element["date"]=new Date(element["date"])
           element["addingDate"]=new Date(element["addingDate"])
           element["date"]=element["date"].toDateString()
@@ -34,6 +38,9 @@ export class HomeComponent implements OnInit {
       console.log(this.myPackages[0])
     })
   }
+  add(){
+    this.router.navigate(['/admin/addpackage', this.myPackages[0].cid]);
+  }
   delete(p){
     if(confirm("Are You Sure, You Want to Delete Package ?")){
       if(p.avail == p.avail_tickets){
@@ -44,7 +51,13 @@ export class HomeComponent implements OnInit {
       } else {
         alert("you can not delete this package")
       }
-    }
-    
+    } 
+  }
+  details(pack){
+    this.company.packageDetails(pack.pid).subscribe(res => { 
+      this.packagedetails.trip = pack
+      this.packagedetails.people = res["data"]
+      this.router.navigate(['/admin/details', JSON.stringify(this.packagedetails)]);
+    })
   }
 }
