@@ -1,0 +1,44 @@
+<section>
+  
+  <div class="row pt-3">
+    <!-- cities requests -->
+    <div class="col-9 pt-3">
+      <!-- add new city -->
+      <div class="row justify-content-end">
+          <div class="col-3">
+              <a class="btn btn-success m-1 text-light" routerLink="/admin/addcity">+ add city</a>
+          </div>
+      </div>
+      <!-- in case no requests -->
+      <div class="row justify-content-center text-center" *ngIf="requests.length==0">
+        <p class="text-muted text-center">no requests untill now</p>
+      </div>
+      <div class="row justify-content-between align-item-center border-bottom pb-3 pt-3 m-2 bg-light" *ngFor="let request of requests">
+        <div class="col-6 pt-2 text-center"><p><strong>{{request.name}}</strong></p></div>
+        <div class="col-6">
+            <a class="btn btn-success m-1 text-light" (click)="accept(request)">Accept</a>
+            <a class="btn btn-danger m-1 text-light" (click)="reject(request)">Reject</a>
+        </div>
+        <div *ngIf="request.flag" class="p-3 m-2 border-top">
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm,request)" novalidate enctype="multipart/form-data">
+              <input type="text" formControlName="name" placeholder="city name">
+              <input type="file" name="myFile" (change)="onFileChange($event.target.files)" placeholder="Your message">
+              <!-- submit form upload image first then add company -->
+              <button type="submit">Send</button>
+            </form> 
+        </div>
+      </div>
+    </div>
+    <!-- side menu of available cities -->
+    <div class="col-3 border-left bg-light pt-3 side">
+      <p class="pt-2 pb-2 border-bottom"><strong>
+        Available Cities
+      </strong></p>
+      <ul>
+        <li *ngFor="let city of cities">
+          <p><strong>{{city}}</strong></p>          
+        </li>
+      </ul>   
+    </div>
+  </div>
+</section>

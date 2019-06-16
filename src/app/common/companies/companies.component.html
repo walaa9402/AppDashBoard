@@ -1,0 +1,41 @@
+<section>
+  <div class="row justify-content-end pt-3 pb-3">
+    <div class="col-3 text-right" *ngIf="role=='admin'">
+      <a routerLink="/admin/addcompany" class="btn btn-success">+ Add Company</a>
+    </div>
+  </div>
+  <div class="row justify-content-center pt-3">
+    <div class="col-10">
+      <div class="row justify-content-start">
+        <div class="col-6 mb-3" *ngFor="let company of companies">
+          <div class="card">
+            <div class="card-body">
+                <div class="row border-bottom pb-3">
+                  <div class="col-4">
+                    <img src={{company.path}} alt={{company.c_name}} class="rounded-circle img-fluid img-thumbnail">
+                  </div>
+                  <div class="col-8">
+                    <p><strong>{{company.c_name}}</strong></p>
+                    <p>Rate : {{company.rate}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <p>Location : <strong>{{company.c_location}}</strong></p>
+                    <p>Email : 
+                      <small><strong>{{company.c_email}}</strong></small>
+                    </p>
+                  </div>
+                </div>
+                <div class="row border-top pt-3" *ngIf="role=='admin'">
+                  <div class="col-10">
+                    <a (click)="deleteCompany(company.cid)" class="btn btn-danger">Delete</a>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

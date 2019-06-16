@@ -1,0 +1,14 @@
+<div class="contain">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" novalidate enctype="multipart/form-data">
+      <input type="text" formControlName="name" placeholder="Your name">
+      <input type="email" formControlName="email" placeholder="Your email">
+      <input type="text" formControlName="phone" placeholder="phone">
+      <input type="text" formControlName="password" placeholder="password">
+      <select id="location" formControlName="location">
+          <option *ngFor="let c of cities" [ngValue]="c">{{ c }}</option>
+      </select> 
+      <input type="file" name="myFile" (change)="onFileChange($event.target.files)" placeholder="Your message">
+      <!-- submit form upload image first then add company -->
+      <button type="submit">Send</button>
+    </form>    
+</div>

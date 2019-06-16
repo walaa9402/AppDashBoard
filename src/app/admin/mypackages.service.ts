@@ -16,10 +16,43 @@ export class MypackagesService {
   packageDetails(pid){
     return this.http.get(this.host+`/company/package/details?id=${pid}`)
   }
-  uploadImage(form){
-    return this.http.post(this.host+"/image/upload",form)
+  uploadImage(formData){
+    return this.http.post(this.host+"/image/",formData)
+  }
+  deleteImage(name){
+    return this.http.post(this.host+"/image/delete",{name})
   }
   login(email,password){
     return this.http.post(this.host+"/company/login",{email,password})
+  }
+  getCompanies(id){
+    return this.http.get(this.host+`/company/all?id=${id}`)
+  }
+  addCompany(company){
+    return this.http.post(this.host+"/company/add",company)
+  }
+  getCities(){
+    return this.http.get(this.host+"/packages/search/all")
+  }
+  deleteCompany(id){
+    return this.http.post(this.host+"/company/delete",{id})
+  }
+  citiesRequests(){
+    return this.http.get(this.host+"/city/requests")
+  }
+  addCity(city){
+    return this.http.post(this.host+"/city/add",city)
+  }
+  deleteRequest(id){
+    return this.http.post(this.host+"/city/request/delete",{id})
+  }
+  addPackage(pack){
+    return this.http.post(this.host+"/packages/add",pack)
+  }
+  allCities(){
+    return this.http.get(this.host+"/company/availcities")
+  }
+  deleteCity(id){
+    return this.http.post(this.host+"/city/delete",{id})
   }
 }

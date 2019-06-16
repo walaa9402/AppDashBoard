@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MypackagesService } from 'src/app/admin/mypackages.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  companyId=1
+  companyId
   myPackages=[]
   packagedetails = {trip : {} , people : []} 
-  constructor(private company : MypackagesService, private router : Router) { }
+  constructor(private company : MypackagesService, private router : Router,private auth:AuthService) { }
 
   ngOnInit() {
+    this.companyId = this.auth.company["id"]
     this.getPackages()
   }
   getPackages(){

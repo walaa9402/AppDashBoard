@@ -28,11 +28,12 @@ export class AuthGuard implements CanActivate {
         if(this.auth.company["role"]== "company" && url[1]=="company"){
           return true
         } else {
-          this.myRoute.navigate(["/"]);
-          return false
+          // this.myRoute.navigate(["/"]);
+          return true
         }
       } else {
         this.myRoute.navigate(["/"]);
+        console.log("not logged in")
         return false;
       }
     // if(this.auth.isLoggedIn() && this.auth.company["role"]=="admin" && state.url=="" ){

@@ -1,10 +1,39 @@
 <div class="contain">
   <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" novalidate enctype="multipart/form-data">
-      <input type="text" formControlName="name" placeholder="Your name">
-      <input type="email" formControlName="email" placeholder="Your email">
-      <input type="number" formControlName="message" placeholder="Your message">
-      <input type="file" formControlName="myFile" name="myFile" (change)="onFileChange($event)" placeholder="Your message">
-    
+      <input type="text" formControlName="name" placeholder="package name">
+      <select id="location" formControlName="from">
+        <option *ngFor="let c of cities" [ngValue]="c">{{ c }}</option>
+      </select>
+      <select id="location" formControlName="to">
+        <option *ngFor="let c of cities" [ngValue]="c">{{ c }}</option>
+      </select>
+      <input type="number" formControlName="duration" placeholder="duration">
+      <input type="text" formControlName="price" placeholder="Adult person price">
+      <input type="text" formControlName="discounted" placeholder="Child price">
+      <input type="number" formControlName="tickets" placeholder="Available tickets">
+      <input type="text" formControlName="desc" placeholder="package description">
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" formControlName="date" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <!-- hidden input of choosing file -->
+      <input type="file" name="myFile" (change)="onFileChange($event.target.files)" placeholder="Your message" hidden #open>
+      <!-- image will appear here when uploaded -->
+      <div class="row justify-content-center">
+        <div class="col-9 m-2 p-2 bg-light" *ngIf="paths.length>0">
+          <div class="row">
+            <div class="col-3 mb-3" *ngFor="let path of paths">
+              <img src={{host+path}} class="img-fluid img-thumbnail">
+              <a (click)="deleteImage(path)" class="btn btn-danger">delete</a>
+            </div>
+          </div>
+        </div>
+        <!-- visible button to choose file -->
+        <div class="col-12">
+            <a (click)="open.click()" class="btn btn-secondary">choose image</a>
+        </div>
+      </div>
       <button type="submit">Send</button>
     </form>    
 </div>
