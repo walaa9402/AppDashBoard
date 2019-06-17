@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MypackagesService } from 'src/app/admin/mypackages.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-add-package',
@@ -18,9 +19,11 @@ export class AddPackageComponent implements OnInit {
   formData
   host = "http://localhost:3000/"
   cities
-  constructor(private rout : ActivatedRoute, private service : MypackagesService,private router : Router) { }
+  role
+  constructor(private rout : ActivatedRoute, private service : MypackagesService,private router : Router, private auth:AuthService) { }
 
   ngOnInit() {
+    this.role = this.auth.company["role"]
     // getting the parameter
     this.rout.paramMap.subscribe(params => {
       this.id = JSON.parse(params.get("id"))
@@ -88,8 +91,10 @@ export class AddPackageComponent implements OnInit {
     console.log(typeof(obj.price))
     this.service.addPackage(obj).subscribe(res => {
       if(res["status"]){
-        alert("package successfully added")
-        this.router.navigate(['/admin'])
+        if(confirm("package successfully added")){
+          this.router.navigate([`/${this.role}`])
+        }
+        
       }else{
         alert("error adding the package, please try again")
       }

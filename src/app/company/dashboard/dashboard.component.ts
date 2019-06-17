@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+  company
+  image
+  constructor(private auth:AuthService) { }
 
   ngOnInit() {
+    this.company=this.auth.company["name"]
+    this.company=this.company.charAt(0).toUpperCase() + this.company.slice(1)
+    this.image = "http://localhost:3000/"+this.auth.company["photo_path"]
   }
 
 }

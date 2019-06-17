@@ -55,4 +55,7 @@ export class MypackagesService {
   deleteCity(id){
     return this.http.post(this.host+"/city/delete",{id})
   }
+  addRequest(name,id){
+    return this.http.post(this.host+"/city/request/add",{name,id})
+  }
 }

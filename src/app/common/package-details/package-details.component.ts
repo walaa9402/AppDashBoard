@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MypackagesService } from 'src/app/admin/mypackages.service';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-package-details',
@@ -11,9 +12,11 @@ export class PackageDetailsComponent implements OnInit {
   details : {trip : {} , people : []}
   package = {}
   booked = []
-  constructor(private rout : ActivatedRoute, private myRoute: Router,private company:MypackagesService) { }
+  role
+  constructor(private rout : ActivatedRoute, private myRoute: Router,private company:MypackagesService,private auth : AuthService) { }
 
   ngOnInit() {
+    this.role = this.auth.company["role"]
     this.rout.paramMap.subscribe(params => {
       this.details = JSON.parse(params.get("details"))
       this.package = this.details.trip
@@ -29,7 +32,7 @@ export class PackageDetailsComponent implements OnInit {
     if(confirm("Are You Sure, You Want to Delete Package ?")){
       if(p.avail == p.avail_tickets){
         this.company.deletePackage(p.pid).subscribe(res => {
-          this.myRoute.navigate(["/admin"]);
+          this.myRoute.navigate([`/${this.role}`]);
           console.log(typeof(res["data"]))
         })
       } else {

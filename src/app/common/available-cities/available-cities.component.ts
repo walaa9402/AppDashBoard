@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MypackagesService } from 'src/app/admin/mypackages.service';
 import { AuthService } from 'src/app/auth.service';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-available-cities',
@@ -11,10 +13,17 @@ export class AvailableCitiesComponent implements OnInit {
   cities
   host = "http://localhost:3000/"
   role
-  constructor(private service : MypackagesService,private auth:AuthService) { }
+  id
+  myForm: FormGroup
+  show = false
+  constructor(private service : MypackagesService,private auth:AuthService, private router : Router) { }
 
   ngOnInit() {
+    this.myForm = new FormGroup({
+      name: new FormControl('')
+    });
     this.role = this.auth.company["role"]
+    this.id = this.auth.company["id"]
     this.getAllCities()
   }
   getAllCities(){
@@ -39,5 +48,15 @@ export class AvailableCitiesComponent implements OnInit {
         }
       })
     }
+  }
+  onSubmit(form :FormGroup){
+    this.service.addRequest(form.value.name,this.id).subscribe(res => {
+      if(res["status"]){
+        alert("requests is successfully added")
+        this.router.navigate([`/${this.role}/add`]);
+      }else{
+        alert("error adding the city request")
+      }
+    })
   }
 }

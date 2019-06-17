@@ -4,7 +4,7 @@
         <a (click)="add()" class="btn btn-success">+ Add Packages</a>
     </div>
   </div>
-  <div *ngIf="myPackages">
+  <div *ngIf="myPackages.length>0">
     <div class="row justify-content-start">
       <div class="col-6" *ngFor="let package of myPackages">
         <div class="card">

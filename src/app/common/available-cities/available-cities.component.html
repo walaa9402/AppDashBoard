@@ -2,10 +2,29 @@
   <div class="container pt-4 pb-4">
     <!-- add new city if admin -->
     <div class="row justify-content-end pt-3 pb-3">
-        <div class="col-3 text-right" *ngIf="role=='admin'">
-            <a class="btn btn-success m-1 text-light" routerLink="/admin/addcity">+ add city</a>
-        </div>
+      <div class="col-3 text-right" *ngIf="role=='admin'">
+          <a class="btn btn-success m-1 text-light" routerLink="/admin/addcity">+ add city</a>
       </div>
+    </div>
+    <div class="row justify-content-between pt-3 pb-3">
+      <!-- hidden input appear when click the button -->
+      <div class="col-9" *ngIf="show">
+          <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" novalidate>
+            <div class="row">
+              <div class="col-7">
+                <input type="text" formControlName="name" placeholder="city name"> 
+              </div>
+              <div class="col-7">
+                <button type="submit">submit</button>
+              </div>
+            </div>
+          </form> 
+      </div>
+      <!-- add city request if company -->
+      <div class="col-3" *ngIf="role=='company'">
+          <a class="btn btn-success m-1 text-light" (click)="show=true">+ request new city</a>
+      </div>
+    </div>
     <!-- all available cities -->
     <div class="row">
       <!-- looping all available cities -->
@@ -14,7 +33,7 @@
               <img class="card-img-top" src={{host+city.city_photo}} alt={{city.city_name}} height="60%">
               <div class="card-body">
                 <h5 class="card-title"><strong>{{city.city_name}}</strong></h5>
-                <div class="row">
+                <div class="row" *ngIf="role=='admin'">
                   <div class="col-4 pb-2">
                       <a (click)="delete(city)" class="btn btn-danger text-light">Delete</a>
                   </div>

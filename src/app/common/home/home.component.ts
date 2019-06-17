@@ -12,15 +12,17 @@ export class HomeComponent implements OnInit {
   companyId
   myPackages=[]
   packagedetails = {trip : {} , people : []} 
+  role
   constructor(private company : MypackagesService, private router : Router,private auth:AuthService) { }
 
   ngOnInit() {
+    this.role = this.auth.company["role"]
     this.companyId = this.auth.company["id"]
     this.getPackages()
   }
   getPackages(){
     this.company.mypackages(this.companyId).subscribe(res => {
-      if(res["data"]){
+      if(res["data"].length>0){
         this.myPackages = res["data"]
         this.myPackages = this.myPackages.map(function(element){
           element["paths"]=element["paths"].map(function(elem){
@@ -41,7 +43,7 @@ export class HomeComponent implements OnInit {
     })
   }
   add(){
-    this.router.navigate(['/admin/addpackage', this.myPackages[0].cid]);
+    this.router.navigate([`/${this.role}/addpackage`, this.companyId]);
   }
   delete(p){
     if(confirm("Are You Sure, You Want to Delete Package ?")){
@@ -59,7 +61,7 @@ export class HomeComponent implements OnInit {
     this.company.packageDetails(pack.pid).subscribe(res => { 
       this.packagedetails.trip = pack
       this.packagedetails.people = res["data"]
-      this.router.navigate(['/admin/details', JSON.stringify(this.packagedetails)]);
+      this.router.navigate([`/${this.role}/details`, JSON.stringify(this.packagedetails)]);
     })
   }
 }

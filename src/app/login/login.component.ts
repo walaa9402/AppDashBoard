@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   myForm : FormGroup
+  emailFlag = false
+  passwordFlag = false
   // data
   constructor(private company : MypackagesService,public auth : AuthService,private myRoute: Router) { }
 
@@ -21,18 +23,23 @@ export class LoginComponent implements OnInit {
     });
   }
   onSubmit(form :FormGroup){
+    this.emailFlag = false
+    this.passwordFlag = false
     // form.value.the name in FormControlName
     this.company.login(form.value.email,form.value.password).subscribe(res => {
-      if(res["company"]){
+      if(res["status"] && res["token"]){
+        //  all data is right
         console.log(res)
         this.auth.company=res["company"]
         this.auth.sendToken(res["token"])
         console.log(res["token"])
-        if(res["company"]["role"]== "admin"){
-          this.myRoute.navigate(["/admin"])
-        } else {
-          this.myRoute.navigate(["/company"])
-        }
+        this.myRoute.navigate([`/${res["company"]["role"]}`])
+      } else if(res["status"] && !res["token"]){
+        // email is wrong
+        this.emailFlag = true
+      } else {
+        // password is wrong
+        this.passwordFlag = true
       }
     })
   }

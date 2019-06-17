@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
 import { HttpClientModule} from '@angular/common/http'
 const routes: Routes = [
   // {path: 'home' , component : ContainerComponent},
@@ -8,9 +7,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    HomeComponent
-  ],
+  declarations: [],
   imports: [RouterModule.forChild(routes),HttpClientModule],
   exports: [RouterModule]
 })
