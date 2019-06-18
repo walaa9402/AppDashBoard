@@ -1,4 +1,21 @@
-.company-layout{
+// .company-layout{
+//     box-sizing: border-box;
+//     min-height: 100vh;
+//     background-color: rgb(224, 224, 220);
+// }
+// .view{
+//     overflow-y: scroll;
+//     max-height: 100vh;
+// }
+
+
+
+
+
+
+// islam  
+
+.admin-layout{
     box-sizing: border-box;
     min-height: 100vh;
     background-color: rgb(224, 224, 220);
@@ -6,4 +23,34 @@
 .view{
     overflow-y: scroll;
     max-height: 100vh;
+ 
 }
+
+main{
+
+    margin-top:80px; 
+    position:relative;
+    z-index: 1;
+                                  
+ }
+
+ .dashboard{
+ z-index: 3; 
+ }
+
+.header{
+
+   position: relative; 
+   width: 100%;
+   app-header{
+       position: relative;
+       z-index: 2; 
+   }
+   
+
+//    z-index: 1; 
+
+}
+
+
+

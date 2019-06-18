@@ -23,9 +23,10 @@ import { StatisticsComponent } from '../common/statistics/statistics.component';
       {path: 'addcompany' , component : AddCompanyComponent,canActivate:[AuthGuard]},
       {path: 'cityrequest' , component : CityRequestsComponent,canActivate:[AuthGuard]},
       {path: 'addcity' , component : AddcityComponent,canActivate:[AuthGuard]},
-      {path: 'availablecities' , component : AvailableCitiesComponent,canActivate:[AuthGuard]}
-    ] },
-    {path: 'statistics' , component : StatisticsComponent,canActivate:[AuthGuard]}
+      {path: 'availablecities' , component : AvailableCitiesComponent,canActivate:[AuthGuard]},
+      {path: 'statistics' , component : StatisticsComponent,canActivate:[AuthGuard]}
+    ] }
+    
     
   ];
 

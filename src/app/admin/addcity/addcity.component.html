@@ -2,19 +2,25 @@
     <div class="row pt-3">
       <!-- add new city -->
       <div class="col-9 pt-3">
-          <div class="container">
+          <div class="container add">
+            
               <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" novalidate enctype="multipart/form-data">
                 <input type="text" formControlName="name" placeholder="city name">
                 <!-- hidden button of upload image -->
                 <input type="file" name="myFile" (change)="onFileChange($event.target.files)" placeholder="choose image" hidden #open>
                 <!-- visible button of upload image -->
-                <a class="btn btn-success m-1 text-light" (click)="open.click()">choose image</a>
+                <div class="row">
+                  <div class="col-lg-4">
+                      <a class="btn btn-success m-1 text-light" (click)="open.click()">choose image</a>
+                  </div>
+                </div>
+                
                 <!-- image name -->
                 <div *ngIf="cityName">
                   <p>{{cityName}}</p>
                 </div>
                 <!-- submit form upload image first then add company -->
-                <button type="submit">Send</button>
+                <button type="submit" class="send-bt">Send</button>
               </form> 
           </div>
       </div>

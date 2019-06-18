@@ -1,22 +1,37 @@
 <section class="profile">
+    
+        <div class="upper"> 
+            <div class="container">
+            <i class="fa fa-user"></i> <h2>My Profile</h2>
+            </div>
+    </div> 
   <div class="container bg-light p-3 m-3">
+    
     <div class="row justify-content-center">
-      <div class="col-10">
+      <div class="col-12">
         <div class="row">
-          <div class="col-4 m-3">
-            <img src={{company.image}} alt={{company.name}} class="img-fluid">
+          <div class="col-2">
+            <div class="c-image"> 
+                <img src={{company.image}} alt={{company.name}} class="img-fluid w-100">
+            </div>
+            
           </div>
-          <div class="col-8 m-3">
+          <div class="col-10">
             <h5><strong>{{company.name}}</strong></h5>
             <h5>rate : {{company.rate}}</h5>
             <h5><small>{{company.location}}</small></h5>
           </div>
-          <div class="col-7">
-            <p>Email : <strong>{{company.email}}</strong></p>
-          </div>
-          <div class="col-7">
-            <p>Phone : <strong>{{company.user_phone}}</strong></p>
-          </div>
+          
+         
+        </div>
+  <hr>
+        <div class="row"> 
+            <div class="col-12">
+                <p>Email : <strong>{{company.email}}</strong></p>
+              </div>
+              <div class="col-12">
+                <p>Phone : <strong>{{company.user_phone}}</strong></p>
+              </div>
         </div>
       </div>
     </div>

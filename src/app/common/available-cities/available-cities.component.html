@@ -8,7 +8,7 @@
     </div>
     <div class="row justify-content-between pt-3 pb-3">
       <!-- hidden input appear when click the button -->
-      <div class="col-9" *ngIf="show">
+      <div class="col-9 add" *ngIf="show">
           <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" novalidate>
             <div class="row">
               <div class="col-7">
@@ -32,7 +32,7 @@
           <div class="card mb-3 city">
               <img class="card-img-top" src={{host+city.city_photo}} alt={{city.city_name}} height="60%">
               <div class="card-body">
-                <h5 class="card-title"><strong>{{city.city_name}}</strong></h5>
+                <h5 class="card-title"> <i class="fas fa-map-marker-alt"></i><strong>{{city.city_name}}</strong></h5>
                 <div class="row" *ngIf="role=='admin'">
                   <div class="col-4 pb-2">
                       <a (click)="delete(city)" class="btn btn-danger text-light">Delete</a>

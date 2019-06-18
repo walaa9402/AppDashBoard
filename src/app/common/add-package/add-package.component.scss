@@ -1,0 +1,67 @@
+.d{
+    display: none; 
+}
+.intro{
+    margin-bottom: 5px; 
+    h3{
+        font-size: 18px; 
+    }
+}
+
+.addP{ 
+    margin-top: 70px; 
+    
+    background-color: #F5F5F5; 
+    padding: 5px; 
+    box-sizing: border-box; 
+    input{
+        padding: 5px 5px; 
+        margin-bottom: 5px; 
+        border-radius: 4PX; 
+
+    }
+}
+
+.contain{
+    box-shadow: 1px 1px 2px #a8a8a8; 
+    padding: 10px 0; 
+}
+.place{
+    select{
+        margin-bottom: 10px; 
+        border:none; 
+        border: 2px solid #510567; 
+        padding: 4px; 
+        border-radius: 6px; 
+    }
+    padding: 20px 0; 
+}
+
+.btn-secondary{
+
+    background-color:#F8B500;
+    color: white !important; 
+    border: none; 
+margin-bottom: 10px; 
+}
+button[type="submit"]{
+    color: white; 
+
+    background-color: #510567; 
+    border:none; 
+    box-shadow: 1px 1px 3px #525252;
+    padding: 10px 10px; 
+    border-radius: 4px; 
+    
+}
+
+textarea{
+
+    margin-top: 10px; 
+    border:none; 
+    border: 2px solid #510567; 
+    padding: 4px; 
+    border-radius: 6px; 
+
+
+}

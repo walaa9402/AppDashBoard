@@ -4,52 +4,72 @@
         <a (click)="add()" class="btn btn-success">+ Add Packages</a>
     </div>
   </div>
-  <div *ngIf="myPackages.length>0">
-    <div class="row justify-content-start">
-      <div class="col-6" *ngFor="let package of myPackages">
-        <div class="card">
-          <img src={{package.paths[0]}} class="card-img-top" alt={{package.p_name}}>
-          <div class="card-body">
-            <div class="row justify-content-between border-bottom pt-2 pb-2">
-              <div class="col-6">
-                <p class="card-title text-capitalize"><strong>{{package.p_name}}</strong></p>
-                <small class="text-muted">Published: {{package.addingDate}}</small>
+  
+ 
+
+  <section class="packages"  *ngIf="myPackages">
+      <div class="container py-3">
+        <div class="card py-3 px-2 my-2" *ngFor="let package of myPackages">
+
+          <div class="row ">
+            <div class="col-md-4">
+                <img src={{package.paths[0]}}  class="w-100" alt={{package.p_name}}>
               </div>
-              <div class="col-6 text-right">
-                <p>{{package.date}}</p>
+              <div class="col-md-8">
+                <div class="card-block px-3">
+                  
+                  <p class="card-title text-capitalize"><strong>{{package.p_name}}</strong></p>
+                  <p class="card-text d-block"> <i class="fas fa-calendar-week"></i>{{package.date}}</p>
+                  <hr> 
+                  <div class="myContent"> 
+                      <div class="row justify-content-between ">
+                          <div class="col-6">
+                              <i class="fas fa-map-marker-alt"></i> <p>From : <strong>{{package.travel_from}}</strong></p>
+                          </div>
+                          <div class="col-6 text-right">
+                              <i class="fas fa-map-marked-alt"></i>
+                            <p>To : <strong>{{package.travel_to}}</strong></p>
+                          </div>
+                      </div>
+                      
+
+                      <div class="row justify-content-between  ">
+                          <div class="col-6">
+                              <i class="fas fa-ticket-alt"></i> <p>Total Tickets : <strong>{{package.avail_tickets}}</strong></p>
+                          </div>
+                          <div class="col-6 text-right">
+                              <i class="fas fa-check"></i> <p>Available : <strong>{{package.avail}}</strong></p>
+                          </div>
+                      </div>
+                      <div class="row justify-content-between  ">
+                          <div class="col-6">
+                              <p>Adults : <strong>{{package.adults}}</strong></p>
+                          </div>
+                          <div class="col-6 text-right">
+                            <p>Children : <strong>{{package.children}}</strong></p>
+                          </div>
+                      </div>
+
+
+                  </div>
+<hr>
+<small class="text-muted">Published: {{package.addingDate}}</small>
+                  <div class=" buttons d-flex justify-content-end">
+                      <a href="#" class="btn btn-primary">Details</a>
+                      <a href="#" (click)="delete(package)" class="btn btn-danger ml-2">delete</a>
+                    
+                   </div>
+                 
+                </div>
               </div>
-            </div>
-            <div class="row justify-content-between border-bottom pt-2 pb-2">
-                <div class="col-6">
-                    <p>From : <strong>{{package.travel_from}}</strong></p>
-                </div>
-                <div class="col-6 text-right">
-                  <p>To : <strong>{{package.travel_to}}</strong></p>
-                </div>
-            </div>
-            <div class="row justify-content-between border-bottom pt-2 pb-2">
-                <div class="col-6">
-                    <p>Total Tickets : <strong>{{package.avail_tickets}}</strong></p>
-                </div>
-                <div class="col-6 text-right">
-                    <p>Available : <strong>{{package.avail}}</strong></p>
-                </div>
-                <div class="col-6">
-                  <p>Adults : <strong>{{package.adults}}</strong></p>
-                </div>
-                <div class="col-6 text-right">
-                  <p>Children : <strong>{{package.children}}</strong></p>
-                </div>
-            </div>
-            <div class="row justify-content-end pt-2">
-                <div class="col-9 text-right">
-                  <a (click)="details(package)" class="btn btn-outline-success">Details</a>
-                  <a (click)="delete(package)" class="btn btn-outline-danger ml-1">Delete</a>
-                </div>
+    
             </div>
           </div>
+
         </div>
-      </div>
-    </div>
-  </div>
+     
+    </section>
+
+
+
 </div>

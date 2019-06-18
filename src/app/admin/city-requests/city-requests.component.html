@@ -13,9 +13,9 @@
       <div class="row justify-content-center text-center" *ngIf="requests.length==0">
         <p class="text-muted text-center">no requests untill now</p>
       </div>
-      <div class="row justify-content-between align-item-center border-bottom pb-3 pt-3 m-2 bg-light" *ngFor="let request of requests">
-        <div class="col-6 pt-2 text-center"><p><strong>{{request.name}}</strong></p></div>
-        <div class="col-6">
+      <div class="row justify-content-between align-item-center border-bottom pb-3 pt-3 m-2 bg-light req" *ngFor="let request of requests">
+        <div class="col-6 pt-2 text-left"><p> <i class="fas fa-map-marked-alt"></i><strong>{{request.name}}</strong></p></div>
+        <div class="col-6 text-right  ">
             <a class="btn btn-success m-1 text-light" (click)="accept(request)">Accept</a>
             <a class="btn btn-danger m-1 text-light" (click)="reject(request)">Reject</a>
         </div>

@@ -1,4 +1,55 @@
 .city{
     height: 260px;
     margin-bottom: 3%;
+    // padding: 20px; 
+    border-radius: 6px; 
+    img{
+        box-shadow: 1px 1px 5px rgb(94, 94, 94); 
+    }
+    
+
+-webkit-box-sizing: border-box; 
+-moz-box-sizing:  border-box;
+-ms-box-sizing:  border-box;
+-o-box-sizing:  border-box;
+box-sizing:  border-box; 
+
+box-shadow: 1px 1px 3px rgb(94, 94, 94); 
+    
+
+
+  h5{
+      margin: 0; 
+      i{
+          margin-right: 5px; 
+      }
+  }
+
+  
 }
+
+.add{
+
+    input{
+        width: 60%; 
+        padding: 10px 10px; 
+        margin-bottom: 20px; 
+        border-radius: 4px; 
+        
+
+    }
+    button{
+        padding: 10px 10px; 
+        background-color: #510567; 
+        color: white; 
+        border:none; 
+        box-shadow: 1px 1px 2px #3d3d3d; 
+        border-radius: 4px; 
+
+        
+    }
+}
+
+
+
+

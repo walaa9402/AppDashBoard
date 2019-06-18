@@ -1,0 +1,44 @@
+
+
+.profile{
+margin-top: 80px; 
+    .c-image{
+
+        border-radius: 5px; 
+        width: 150px; 
+        height: 150px;
+
+        img{
+            object-fit: cover; 
+            object-position: center; 
+        }
+        
+        
+    }
+
+    .row{
+        margin-bottom: 40px; 
+    }
+
+
+}
+
+.upper{
+    padding: 20px 0; 
+    box-shadow: 2px 2px 3px #807d7d; 
+
+    i{
+        display: inline-block; 
+        font-size:20px; 
+        margin-right: 10px; 
+        color: #3d3d3d; 
+
+    }
+    h2{
+        display: inline-block; 
+        margin-bottom: 0; 
+        color: #3d3d3d; 
+        font-size:20px; 
+
+    }
+}

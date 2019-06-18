@@ -1,4 +1,6 @@
-<div class="contain">
+
+
+<div class="contain f">
   <div class="row justify-content-center">
     <div class="col-8 text-center">
         <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" novalidate>
@@ -25,4 +27,90 @@
           </form>
     </div>
   </div>    
-</div>
+</div> 
+
+
+
+
+<!-- islam  -->
+
+
+
+
+
+<section class="logIn d-flex justify-content-center align-items-center"> 
+  <div class="container"> 
+    <div class="row"> 
+      <div class="col-lg-6 left">
+
+        <div class="intro "> 
+                    <h2> Welcome.</h2>
+                    <p> Login to your dashboard</p>
+                  </div>
+
+          <div class="contain">
+              <div class="row justify-content-center">
+
+                  
+
+                <div class="col-8 text-center">
+                    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" novalidate>
+                        <!--  email input -->
+                        <div class="row">
+                            <input type="email" formControlName="email" placeholder="Your email">
+                        </div>
+                        <!-- email alert -->
+                        <div class="row" *ngIf="emailFlag">
+                          <p class="text-danger">* wrong email, please check your email</p>
+                        </div>
+                        <!-- password input -->
+                        <div class="row">
+                            <input type="password" formControlName="password" placeholder="Your password">
+                        </div>
+                        <!-- password alert -->
+                        <div class="row" *ngIf="passwordFlag">
+                            <p class="text-danger">* wrong password, please check your password</p>
+                          </div>
+                        <!-- submit button -->
+                        <div class="row">
+                            <button type="submit">login</button>
+                        </div>
+                      </form>
+                </div>
+              </div>    
+            </div> 
+
+       
+
+      </div>  
+      <!-- end left  -->
+
+      <div class="col-lg-6 right">
+
+         <div class="row"> 
+           <div class=" col-lg-4 text-left logo"> 
+              
+
+            <img src="../../assets/images/logo.png"  class=" img-fluid">
+
+           </div>
+         </div>
+         <div class="row"> 
+           <div class="col-lg-12">
+             <p> Mobile application that combines all trips for tourism companies. Where you can easily search within our databases and find the best trip to suit you.</p>
+             <p> And can be one of our partners .. by owning a dashboard that controls your company's Packages.</p>
+           </div> 
+           <div class="col-lg-12 vector"> 
+             <img src="../../assets/images/vector.png"  class="text-center">
+           </div>
+         </div>
+       
+
+        </div> 
+    </div>
+
+  </div>
+
+</section>
+
+
