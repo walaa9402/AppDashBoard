@@ -7,7 +7,7 @@
   
  
 
-  <section class="packages"  *ngIf="myPackages">
+  <section class="packages"  *ngIf="myPackages.length>0">
       <div class="container py-3">
         <div class="card py-3 px-2 my-2" *ngFor="let package of myPackages">
 
@@ -55,8 +55,8 @@
 <hr>
 <small class="text-muted">Published: {{package.addingDate}}</small>
                   <div class=" buttons d-flex justify-content-end">
-                      <a href="#" class="btn btn-primary">Details</a>
-                      <a href="#" (click)="delete(package)" class="btn btn-danger ml-2">delete</a>
+                      <a (click)="details(package)" class="btn btn-primary">Details</a>
+                      <a (click)="delete(package)" (click)="delete(package)" class="btn btn-danger ml-2">delete</a>
                     
                    </div>
                  

@@ -1,2 +1,31 @@
 
 
+.contain{
+    margin-top: 150px; 
+    input{
+        padding:10px 10px; 
+        border: none; 
+        margin-bottom: 20px; 
+        border-radius: 4px; 
+    }
+    select{
+        padding:  5px 5px ;
+    
+     border-radius: 4px; 
+     margin-bottom: 20px; 
+    }
+    button{
+        background-color:#510567 ; 
+         border: none; 
+         color: white; 
+         border-radius: 4px; 
+         padding: 10px 15px; 
+    }
+
+    input[type="file"]{
+       margin: 0; 
+       padding: 0; 
+       margin-bottom: 20px; 
+
+    }
+}

@@ -34,12 +34,14 @@ main{
 
  .dashboard{
  z-index: 3; 
+ height: 100vh;
  }
 
 .header{
 
    position: relative; 
    width: 100%;
+  
    app-header{
        position: relative;
        z-index: 2; 

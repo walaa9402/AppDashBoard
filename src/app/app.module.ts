@@ -10,17 +10,24 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// islam
+import { ChartsModule } from 'ng2-charts';
+import { MyLineChartComponent } from './my-line-chart/my-line-chart.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    MyLineChartComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ChartsModule
+   
   ],
   providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent]

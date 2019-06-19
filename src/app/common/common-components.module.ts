@@ -1,3 +1,5 @@
+import { ChartsModule } from 'ng2-charts';
+import { MyBarChartComponent } from './../my-bar-chart/my-bar-chart.component';
 import { NgModule } from '@angular/core';
 import { CommonRoutingModule } from './common-routing.module';
 
@@ -11,8 +13,10 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonRoutingModule,
     ReactiveFormsModule,
-    CommonModule
-  ],
-  declarations: [ProfileComponent,HomeComponent, AvailableCitiesComponent, StatisticsComponent]
+    CommonModule,
+    ChartsModule   ],
+  declarations: [ProfileComponent,HomeComponent, AvailableCitiesComponent, StatisticsComponent,
+    MyBarChartComponent],
+    exports:[]
 })
 export class CommonComponentsModule { }

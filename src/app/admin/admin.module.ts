@@ -1,3 +1,4 @@
+import { MyBarChartComponent } from './../my-bar-chart/my-bar-chart.component';
 import { NgModule } from '@angular/core';
 import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -13,6 +14,8 @@ import { MaterialModule } from '../material/material.module';
 import { AddcityComponent } from './addcity/addcity.component';
 import { CommonComponentsModule } from '../common/common-components.module';
 import { HeaderComponent } from './header/header.component';
+import { ChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations : [DashboardComponent, ContainerComponent, AddPackageComponent, PackageDetailsComponent,AddCompanyComponent,CompaniesComponent, CityRequestsComponent, AddcityComponent, HeaderComponent],
@@ -21,7 +24,8 @@ import { HeaderComponent } from './header/header.component';
     ReactiveFormsModule,
     MaterialModule,
     CommonComponentsModule,
-    CommonModule
+    CommonModule,
+    ChartsModule ,
   ],
   exports: []
 })
