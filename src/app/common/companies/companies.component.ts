@@ -23,7 +23,7 @@ export class CompaniesComponent implements OnInit {
       this.companies=res["data"]
       console.log(this.companies)
       this.companies = this.companies.map(function(element){
-        element.path="http://localhost:3000/"+element["c_photo_path"]
+        element.path="https://wetravelapp.herokuapp.com/"+element["c_photo_path"]
         return element
       })
     })

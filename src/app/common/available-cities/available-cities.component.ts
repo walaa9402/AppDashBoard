@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AvailableCitiesComponent implements OnInit {
   cities
-  host = "http://localhost:3000/"
+  host = "https://wetravelapp.herokuapp.com/"
   role
   id
   myForm: FormGroup

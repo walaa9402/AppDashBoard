@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MypackagesService {
-  host ="http://localhost:3000"
+  host ="https://wetravelapp.herokuapp.com"
   constructor(private http : HttpClient) { }
   mypackages(company_id){
     return this.http.get(this.host+`/company/mypackages?id=${company_id}`)

@@ -17,7 +17,7 @@ export class AddPackageComponent implements OnInit {
   fileToUpload
   paths = []
   formData
-  host = "http://localhost:3000/"
+  host = "https://wetravelapp.herokuapp.com/"
   cities
   role
   constructor(private rout : ActivatedRoute, private service : MypackagesService,private router : Router, private auth:AuthService) { }

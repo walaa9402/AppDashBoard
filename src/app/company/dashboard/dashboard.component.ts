@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.company=this.auth.company["name"]
     this.company=this.company.charAt(0).toUpperCase() + this.company.slice(1)
-    this.image = "http://localhost:3000/"+this.auth.company["photo_path"]
+    this.image = "https://wetravelapp.herokuapp.com/"+this.auth.company["photo_path"]
   }
 
 }

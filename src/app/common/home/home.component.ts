@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
         this.myPackages = this.myPackages.map(function(element){
           element["paths"]=element["paths"].map(function(elem){
 
-            return "http://localhost:3000/"+elem
+            return "https://wetravelapp.herokuapp.com/"+elem
           })
           element["date"]=new Date(element["date"])
           element["addingDate"]=new Date(element["addingDate"])
